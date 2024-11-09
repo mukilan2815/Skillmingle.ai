@@ -28,7 +28,7 @@ export default function ComparisonTable() {
                 Features
               </th>
               <th className="px-6 py-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-center text-xs font-medium text-white uppercase tracking-wider">
-                FreelanceAI
+                Mingle.ai
               </th>
               <th className="px-6 py-3 bg-gray-50 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Upwork
