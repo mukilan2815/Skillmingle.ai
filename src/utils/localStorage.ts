@@ -1,10 +1,10 @@
-import { Project, User, Notification } from '../types';
+import { Project, User, Notification } from "../types";
 
 const STORAGE_KEYS = {
-  USERS: 'freelance_users',
-  PROJECTS: 'freelance_projects',
-  NOTIFICATIONS: 'freelance_notifications',
-  CURRENT_USER: 'freelance_current_user',
+  USERS: "freelance_users",
+  PROJECTS: "freelance_projects",
+  NOTIFICATIONS: "freelance_notifications",
+  CURRENT_USER: "freelance_current_user",
 };
 
 export const storage = {
@@ -32,7 +32,7 @@ export const storage = {
 
   updateProject: (updatedProject: Project): void => {
     const projects = storage.getProjects();
-    const index = projects.findIndex(p => p.id === updatedProject.id);
+    const index = projects.findIndex((p) => p.id === updatedProject.id);
     if (index !== -1) {
       projects[index] = updatedProject;
       localStorage.setItem(STORAGE_KEYS.PROJECTS, JSON.stringify(projects));
@@ -53,7 +53,7 @@ export const storage = {
 
   updateUser: (updatedUser: User): void => {
     const users = storage.getUsers();
-    const index = users.findIndex(u => u.id === updatedUser.id);
+    const index = users.findIndex((u) => u.id === updatedUser.id);
     if (index !== -1) {
       users[index] = updatedUser;
       localStorage.setItem(STORAGE_KEYS.USERS, JSON.stringify(users));
@@ -64,8 +64,8 @@ export const storage = {
   getMatchingProjects: (skills: string[]): Project[] => {
     const projects = storage.getProjects();
     return projects
-      .filter(project => project.status === 'open')
-      .map(project => ({
+      .filter((project) => project.status === "open")
+      .map((project) => ({
         ...project,
         matchScore: calculateMatchScore(project.skills, skills),
       }))
@@ -74,10 +74,13 @@ export const storage = {
 };
 
 // Helper function to calculate match score between project and user skills
-function calculateMatchScore(projectSkills: string[], userSkills: string[]): number {
-  const matchingSkills = projectSkills.filter(skill => 
+function calculateMatchScore(
+  projectSkills: string[],
+  userSkills: string[]
+): number {
+  const matchingSkills = projectSkills.filter((skill) =>
     userSkills.includes(skill)
   ).length;
-  
+
   return Math.round((matchingSkills / projectSkills.length) * 100);
 }
