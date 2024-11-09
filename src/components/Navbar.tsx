@@ -14,7 +14,7 @@ export default function Navbar({ onAuthClick }: NavbarProps) {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 text-transparent bg-clip-text">
-              FreelanceAI
+              Mingle.ai
             </Link>
           </div>
           

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Upload, Plus, X } from 'lucide-react';
+import { Upload } from 'lucide-react';
 import { storage } from '../utils/localStorage';
 import { User } from '../types';
 import GradientButton from '../components/shared/GradientButton';
